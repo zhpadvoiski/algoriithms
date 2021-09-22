@@ -41,6 +41,24 @@ class Tree {
       }
     }
   }
+
+  findMix() {
+    let current = this.root;
+    while (current.left) {
+      current = current.left;
+    }
+    return current.value;
+  }
+  findMax() {
+    let current = this.root;
+    while (current.right) {
+      current = current.right;
+    }
+    return current.right;
+  }
+
+  find(value) {}
+
   print() {
     let current = this.root;
     const values = [];
