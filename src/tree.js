@@ -57,7 +57,54 @@ class Tree {
     return current.right;
   }
 
-  find(value) {}
+  find(value) {
+    let current = this.root;
+    while (current) {
+      if (value < current.value) {
+        current = current.left;
+      } else if (value > current.value) {
+        current = current.right;
+      } else {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  remove(value) {
+    let current = this.root;
+    if (!current) {
+      throw "The tree is empty";
+    }
+
+    function deleteNode(node, value) {
+      if (node.value === value) {
+        if (!node.right && !node.left) {
+          return null;
+        }
+        if (!node.right) {
+          return node.left;
+        }
+        if (!node.left) {
+          return node.right;
+        } else {
+          let tempNode = node.right;
+          while (tempNode.left) {
+            tempNode = tempNode.left;
+          }
+          node.value = tempNode.value;
+          node.right = deleteNode(node.right, tempNode.value);
+          return node;
+        }
+      } else if (value < node.value) {
+        node.left = deleteNode(node.left, value);
+        return node;
+      } else if (value > node.value) {
+        node.right = deleteNode(node.right, value);
+        return node;
+      }
+    }
+  }
 
   print() {
     let current = this.root;
