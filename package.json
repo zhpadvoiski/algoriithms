@@ -1,8 +1,11 @@
 {
     "scripts": {
-      "start": "node ./dist/tree.js",
-      "build-dist": "./node_modules/typescript/bin/tsc",
-      "mocha": "mocha --recursive --reporter spec -r ./dist/test/bootstrap.js",
-      "test": "npm run mocha -- ./dist/test/ -r ./dist/test/integration/bootstrap.js"
+        "start": "node ./dist/tree.js",
+        "build-dist": "./node_modules/typescript/bin/tsc",
+        "mocha": "mocha --recursive --reporter spec -r ./dist/test/bootstrap.js",
+        "test": "npm run mocha -- ./dist/test/ -r ./dist/test/integration/bootstrap.js"
+    },
+    "dependencies": {
+        "print-tree": "^0.1.5"
     }
-  }
+}
