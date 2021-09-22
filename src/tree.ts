@@ -1,4 +1,10 @@
-function Node(value, left, right) {
+interface Node{
+  value: number | null;
+  left: Node | null;
+  right: Node | null;
+}
+
+function NodeBuilder(value: number, left: Node | null, right: Node | null) {
   if (!value) {
     throw "value not initialized";
   }
